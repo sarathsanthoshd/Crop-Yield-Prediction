@@ -250,30 +250,57 @@ html, body, [data-testid="stAppViewContainer"] {
   letter-spacing: 0 !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
+/* ── Select & input wrappers ── */
 div[data-baseweb="select"] > div,
 div[data-baseweb="input"] > div {
   border-radius: var(--r-sm) !important;
   border-color: var(--border) !important;
-  background: var(--surface-2) !important;
+  background: #ffffff !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: .88rem !important;
   color: var(--text-1) !important;
-  transition: border-color .15s, box-shadow .15s, background .15s !important;
+  transition: border-color .15s, box-shadow .15s !important;
 }
 div[data-baseweb="select"] > div:hover,
 div[data-baseweb="input"] > div:hover {
   border-color: var(--green-400) !important;
-  background: var(--surface) !important;
+  background: #ffffff !important;
 }
 div[data-baseweb="select"] > div:focus-within,
 div[data-baseweb="input"] > div:focus-within {
   border-color: var(--green-500) !important;
   box-shadow: 0 0 0 3px rgba(45,158,99,.15) !important;
-  background: var(--surface) !important;
+  background: #ffffff !important;
 }
-input[type="number"] {
-  font-family: 'JetBrains Mono', monospace !important;
+
+/* ── Fix: make number input text & background always visible ── */
+input[type="number"],
+input[type="text"] {
+  background: #ffffff !important;
+  color: #0d1f15 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: .9rem !important;
   font-weight: 500 !important;
+  -webkit-text-fill-color: #0d1f15 !important;
+  opacity: 1 !important;
+}
+
+/* ── Fix: number input +/- buttons should be green, not dark ── */
+[data-testid="stNumberInput"] button {
+  background: var(--green-700) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+[data-testid="stNumberInput"] button:hover {
+  background: var(--green-600) !important;
+}
+
+/* ── Fix: remove any red error highlight on inputs ── */
+div[data-baseweb="input"][aria-invalid="true"] > div,
+div[data-baseweb="input"] > div[style*="border-color: rgb(255"] {
+  border-color: var(--border) !important;
+  background: #ffffff !important;
 }
 
 /* ── Submit button ── */
